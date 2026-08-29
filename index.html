@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>NEXORA — Premium Tech Accessories | Lahore</title>
+<meta name="description" content="NEXORA is a premium technology accessories store in Lahore. Shop curated headphones, keyboards, chargers, smart devices, and gaming gear with same-day delivery." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="NEXORA — Premium Tech Accessories" />
+<meta property="og:description" content="Premium tech accessories designed for the way you live, work, game, and connect. Same-day delivery across Lahore." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { ink: '#0A0A0A', panel: '#111111', cyan: { 400: '#22D3EE', 300: '#67E8F9' } },
+    fontFamily: { sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] }
+  } }
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#0A0A0A; color:#F5F5F5; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#22D3EE; color:#000; }
+  .eyebrow { font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:500; letter-spacing:.24em; color:#22D3EE; text-transform:uppercase; }
+  .primary-btn { display:inline-flex; min-height:2.75rem; align-items:center; justify-content:center; gap:.5rem; border-radius:.75rem; background:#22D3EE; padding:.75rem 1.25rem; font-size:.875rem; font-weight:600; color:#000; transition:.2s; }
+  .primary-btn:hover { transform:scale(1.03); background:#67E8F9; box-shadow:0 0 24px rgba(34,211,238,.25); }
+  .primary-btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+  .secondary-btn { display:inline-flex; min-height:2.75rem; align-items:center; justify-center; gap:.5rem; border-radius:.75rem; border:1px solid rgba(255,255,255,.15); padding:.75rem 1.25rem; font-size:.875rem; font-weight:500; transition:.2s; }
+  .secondary-btn:hover { border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.05); }
+  .card { background:#111111; border:1px solid rgba(255,255,255,.08); border-radius:1rem; overflow:hidden; transition:.3s; }
+  .card:hover { border-color:rgba(34,211,238,.4); transform:translateY(-6px); box-shadow:0 20px 40px -20px rgba(34,211,238,.15); }
+  .card:hover img { transform:scale(1.06); }
+  .card img { transition:transform .5s ease; }
+  @keyframes float { 50% { transform: translateY(-12px) rotate(1deg); } }
+  .float-product { animation: float 5s ease-in-out infinite; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+  .reveal { opacity:0; animation: fadeUp .8s cubic-bezier(.16,1,.3,1) forwards; }
+  .nav-link { position:relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:#22D3EE; transition:.3s; }
+  .nav-link:hover::after { width:100%; }
+  .drawer { transition: transform .35s cubic-bezier(.16,1,.3,1); }
+  .modal { transition: opacity .3s, visibility .3s; }
+  .badge { font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; }
+  .field-input { width:100%; border-radius:.75rem; border:1px solid rgba(255,255,255,.1); background:rgba(0,0,0,.4); padding:.75rem 1rem; color:#fff; outline:none; transition:.2s; }
+  .field-input:focus { border-color:#22D3EE; }
+  .field-input::placeholder { color:#52525b; }
+  .chat-msg { animation: fadeUp .3s ease forwards; }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full border-b border-white/10 bg-ink/70 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10">
+    <a href="#top" class="flex items-center gap-2 text-lg font-black tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-lg bg-cyan-400 text-black font-mono">N</span>
+      NEXORA
+    </a>
+    <nav class="hidden items-center gap-8 text-sm font-medium text-zinc-300 md:flex">
+      <a href="#top" class="nav-link hover:text-white">Home</a>
+      <a href="#shop" class="nav-link hover:text-white">Shop</a>
+      <a href="#categories" class="nav-link hover:text-white">Categories</a>
+      <a href="#about" class="nav-link hover:text-white">About</a>
+      <a href="#contact" class="nav-link hover:text-white">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button onclick="openAuth('login')" id="authBtn" class="hidden h-10 items-center gap-2 rounded-xl px-3 text-sm font-medium text-zinc-300 hover:bg-white/10 hover:text-cyan-400 md:flex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="authBtnLabel">Sign in</span>
+      </button>
+      <button onclick="toggleCart()" class="relative grid h-10 w-10 place-items-center rounded-xl text-zinc-300 hover:bg-white/10 hover:text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <b id="cartCount" class="absolute right-0 top-0 min-w-4 rounded-full bg-cyan-400 px-1 text-center text-[.6rem] leading-4 text-black">0</b>
+      </button>
+      <button onclick="toggleMenu()" class="grid h-10 w-10 place-items-center rounded-xl text-zinc-300 hover:bg-white/10 md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="drawer fixed inset-0 z-40 translate-x-full bg-ink/95 backdrop-blur-xl md:hidden">
+  <div class="flex flex-col gap-2 px-6 pt-28 text-xl font-medium">
+    <a href="#top" onclick="toggleMenu()" class="border-b border-white/10 py-4">Home</a>
+    <a href="#shop" onclick="toggleMenu()" class="border-b border-white/10 py-4">Shop</a>
+    <a href="#categories" onclick="toggleMenu()" class="border-b border-white/10 py-4">Categories</a>
+    <a href="#about" onclick="toggleMenu()" class="border-b border-white/10 py-4">About</a>
+    <a href="#contact" onclick="toggleMenu()" class="border-b border-white/10 py-4">Contact</a>
+    <button onclick="toggleMenu(); openAuth('login')" id="authBtnMobile" class="border-b border-white/10 py-4 text-left text-cyan-400">Sign in</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="top" class="relative grid min-h-screen items-center gap-10 px-5 pb-16 pt-36 md:px-10 lg:grid-cols-12">
+  <div id="hero3d" class="pointer-events-none absolute inset-0 overflow-hidden"></div>
+  <div class="pointer-events-none absolute left-1/4 top-1/3 h-96 w-96 rounded-full bg-cyan-400/10 blur-[120px]"></div>
+  <div class="pointer-events-none absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-cyan-400/5 blur-[100px]"></div>
+
+  <div class="relative z-10 lg:col-span-6 lg:col-start-2">
+    <div class="reveal inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/5 px-4 py-2" style="animation-delay:.05s">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#22D3EE"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
+      <span class="eyebrow !text-cyan-300">PREMIUM TECHNOLOGY · LAHORE</span>
+    </div>
+    <h1 class="reveal mt-8 max-w-4xl text-6xl font-black leading-[.9] tracking-[-.06em] sm:text-8xl xl:text-[8rem]" style="animation-delay:.15s">
+      Technology,<br/><span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-zinc-500 bg-clip-text text-transparent">Simplified.</span>
+    </h1>
+    <p class="reveal mt-8 max-w-xl text-lg leading-relaxed text-zinc-400 md:text-xl" style="animation-delay:.27s">Premium tech accessories designed for the way you live, work, game, and connect.</p>
+    <div class="reveal mt-10 flex flex-wrap gap-3" style="animation-delay:.39s">
+      <a href="#shop" class="primary-btn text-base">Shop Collection
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#featured" class="secondary-btn text-base">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Explore Products
+      </a>
+    </div>
+    <div class="reveal mt-12 flex gap-8 text-sm text-zinc-500" style="animation-delay:.51s">
+      <div><b class="block text-2xl text-white">13+</b>Curated products</div>
+      <div><b class="block text-2xl text-white">24h</b>Lahore delivery</div>
+      <div><b class="block text-2xl text-white">4.8★</b>Avg rating</div>
+    </div>
+  </div>
+
+  <div class="reveal relative z-10 lg:col-span-5" style="animation-delay:.5s">
+    <div class="absolute inset-1/4 rounded-full bg-cyan-400/20 blur-[100px]"></div>
+    <div class="float-product relative aspect-square">
+      <img src="https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/47320a483_generated_0a0deb20.png" alt="NEXORA AirSound Pro" class="h-full w-full object-contain" />
+    </div>
+    <span class="absolute left-0 top-1/4 h-3 w-3 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_20px_#22D3EE]"></span>
+    <span class="absolute bottom-1/4 right-8 h-px w-24 bg-gradient-to-r from-transparent to-cyan-400"></span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="border-y border-white/10 bg-panel/50 py-4 overflow-hidden">
+  <div class="flex gap-12 whitespace-nowrap font-mono text-sm text-zinc-500" style="animation: marquee 30s linear infinite">
+    <span>◆ FREE SAME-DAY DELIVERY IN LAHORE</span><span>◆ CASH ON DELIVERY AVAILABLE</span><span>◆ 7-DAY EASY RETURNS</span><span>◆ PREMIUM TECH ACCESSORIES</span><span>◆ FREE SAME-DAY DELIVERY IN LAHORE</span><span>◆ CASH ON DELIVERY AVAILABLE</span><span>◆ 7-DAY EASY RETURNS</span><span>◆ PREMIUM TECH ACCESSORIES</span>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section id="featured" class="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+  <div class="mb-12 flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <p class="eyebrow mb-3">Featured Collection</p>
+      <h2 class="text-4xl font-black tracking-tight md:text-5xl">Engineered for excellence</h2>
+    </div>
+    <a href="#shop" class="secondary-btn">View all
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+  <div id="featuredGrid" class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4"></div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories" class="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+  <div class="mb-12 text-center">
+    <p class="eyebrow mb-3">Browse by category</p>
+    <h2 class="text-4xl font-black tracking-tight md:text-5xl">Find your edge</h2>
+  </div>
+  <div id="categoryGrid" class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6"></div>
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+  <div class="mb-12 flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <p class="eyebrow mb-3">Full Catalog</p>
+      <h2 class="text-4xl font-black tracking-tight md:text-5xl">The complete lineup</h2>
+    </div>
+    <div class="flex flex-wrap gap-2" id="filterBar"></div>
+  </div>
+  <div id="shopGrid" class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+  <div class="grid gap-12 lg:grid-cols-2">
+    <div>
+      <p class="eyebrow mb-3">Our Philosophy</p>
+      <h2 class="text-4xl font-black tracking-tight md:text-5xl">Built for the future,<br/>made for you.</h2>
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-zinc-400">NEXORA curates premium technology accessories that blend minimalist design with cutting-edge performance — delivered fast across Lahore and nationwide.</p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-cyan-400/10 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3 class="font-semibold">Fast Delivery</h3><p class="mt-1 text-sm text-zinc-400">Same-day within Lahore, 2-3 days nationwide.</p></div>
+      <div class="card p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-cyan-400/10 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7-9 9-5.5-2-9-4-9-9V5l9-3 9 3v7z"/></svg></div><h3 class="font-semibold">Quality Guaranteed</h3><p class="mt-1 text-sm text-zinc-400">Every product tested and 7-day returnable.</p></div>
+      <div class="card p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-cyan-400/10 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg></div><h3 class="font-semibold">Curated Selection</h3><p class="mt-1 text-sm text-zinc-400">Only the best tech, hand-picked for you.</p></div>
+      <div class="card p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-cyan-400/10 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 class="font-semibold">24/7 Support</h3><p class="mt-1 text-sm text-zinc-400">We're here whenever you need us.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+  <div class="grid gap-12 lg:grid-cols-2">
+    <div>
+      <p class="eyebrow mb-3">Get in touch</p>
+      <h2 class="text-4xl font-black tracking-tight md:text-5xl">Let's talk tech.</h2>
+      <p class="mt-6 max-w-md text-lg text-zinc-400">Questions about a product or your order? Reach out and our team in Lahore will respond within hours.</p>
+      <div class="mt-8 space-y-3 text-sm text-zinc-300">
+        <p>📍 Lahore, Punjab, Pakistan</p>
+        <p>✉️ hello@nexora.pk</p>
+        <p>🕒 Mon–Sat, 10am–8pm PKT</p>
+      </div>
+    </div>
+    <form onsubmit="sendMessage(event)" class="card space-y-4 p-6 md:p-8">
+      <div><label class="badge text-zinc-500">Name</label><input required name="name" maxlength="100" class="field-input mt-2" placeholder="Your name" /></div>
+      <div><label class="badge text-zinc-500">Email</label><input required name="email" type="email" maxlength="100" class="field-input mt-2" placeholder="you@email.com" /></div>
+      <div><label class="badge text-zinc-500">Message</label><textarea required name="message" maxlength="2000" rows="4" class="field-input mt-2" placeholder="How can we help?"></textarea></div>
+      <button type="submit" class="primary-btn w-full">Send Message</button>
+      <p id="formMsg" class="hidden text-center text-sm text-cyan-400">Thanks! We'll be in touch shortly.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 bg-panel/50">
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-10">
+    <div class="grid gap-8 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <a href="#top" class="flex items-center gap-2 text-lg font-black"><span class="grid h-8 w-8 place-items-center rounded-lg bg-cyan-400 text-black font-mono">N</span>NEXORA</a>
+        <p class="mt-4 max-w-sm text-sm text-zinc-400">Premium technology accessories, delivered. Based in Lahore, serving all of Pakistan.</p>
+      </div>
+      <div>
+        <h4 class="badge mb-3 text-zinc-500">Shop</h4>
+        <ul class="space-y-2 text-sm text-zinc-400">
+          <li><a href="#shop" class="hover:text-cyan-400">All Products</a></li>
+          <li><a href="#categories" class="hover:text-cyan-400">Categories</a></li>
+          <li><a href="#featured" class="hover:text-cyan-400">Featured</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="badge mb-3 text-zinc-500">Company</h4>
+        <ul class="space-y-2 text-sm text-zinc-400">
+          <li><a href="#about" class="hover:text-cyan-400">About</a></li>
+          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+          <li><a href="#" class="hover:text-cyan-400">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-zinc-500 md:flex-row">
+      <p>© 2026 NEXORA. All rights reserved.</p>
+      <p class="font-mono">Designed in Lahore · Built for the future</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div id="cartOverlay" onclick="toggleCart()" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm"></div>
+<aside id="cartDrawer" class="drawer fixed right-0 top-0 z-50 h-full w-full max-w-md translate-x-full border-l border-white/10 bg-ink">
+  <div class="flex h-full flex-col">
+    <div class="flex items-center justify-between border-b border-white/10 p-6">
+      <h3 class="text-xl font-bold" id="cartTitle">Your Cart</h3>
+      <button onclick="toggleCart()" class="grid h-9 w-9 place-items-center rounded-lg hover:bg-white/10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <!-- CART VIEW -->
+    <div id="cartView" class="flex flex-1 flex-col overflow-hidden">
+      <div id="cartItems" class="flex-1 overflow-y-auto p-6"></div>
+      <div class="border-t border-white/10 p-6">
+        <div class="mb-2 flex justify-between text-sm text-zinc-400"><span>Subtotal</span><span id="cartSubtotal">Rs. 0</span></div>
+        <div class="mb-4 flex justify-between text-sm text-zinc-400"><span>Delivery</span><span>Rs. 250</span></div>
+        <div class="mb-5 flex justify-between text-lg font-bold"><span>Total</span><span id="cartTotal">Rs. 250</span></div>
+        <button onclick="goToCheckout()" id="checkoutBtn" class="primary-btn w-full">Proceed to Checkout</button>
+      </div>
+    </div>
+    <!-- CHECKOUT VIEW -->
+    <div id="checkoutView" class="hidden flex-1 flex-col overflow-hidden">
+      <div class="flex-1 overflow-y-auto p-6">
+        <button onclick="backToCart()" class="mb-4 flex items-center gap-2 text-sm text-zinc-400 hover:text-cyan-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to cart
+        </button>
+        <h4 class="mb-4 text-lg font-bold">Shipping Details</h4>
+        <form id="checkoutForm" onsubmit="placeOrder(event)" class="space-y-3">
+          <div class="grid grid-cols-2 gap-3">
+            <input required name="name" maxlength="80" class="field-input" placeholder="Full name" />
+            <input required name="phone" maxlength="20" class="field-input" placeholder="Phone" />
+          </div>
+          <input required type="email" name="email" maxlength="100" class="field-input" placeholder="Email" />
+          <input required name="address" maxlength="200" class="field-input" placeholder="Street address" />
+          <div class="grid grid-cols-2 gap-3">
+            <input required name="city" maxlength="60" class="field-input" placeholder="City" />
+            <input name="postal" maxlength="10" class="field-input" placeholder="Postal code" />
+          </div>
+          <h4 class="mb-2 mt-5 text-lg font-bold">Payment Method</h4>
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-cyan-400/40 bg-cyan-400/5 p-4">
+            <input type="radio" name="payment" value="cod" checked class="accent-cyan-400" />
+            <div><p class="text-sm font-medium">Cash on Delivery</p><p class="text-xs text-zinc-400">Pay when it arrives</p></div>
+          </label>
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 p-4">
+            <input type="radio" name="payment" value="online" class="accent-cyan-400" />
+            <div><p class="text-sm font-medium">Online Payment</p><p class="text-xs text-zinc-400">Card / bank transfer (coming soon)</p></div>
+          </label>
+        </form>
+      </div>
+      <div class="border-t border-white/10 p-6">
+        <div class="mb-2 flex justify-between text-sm text-zinc-400"><span>Subtotal</span><span id="coSubtotal">Rs. 0</span></div>
+        <div class="mb-4 flex justify-between text-sm text-zinc-400"><span>Delivery</span><span>Rs. 250</span></div>
+        <div class="mb-5 flex justify-between text-lg font-bold"><span>Total</span><span id="coTotal">Rs. 250</span></div>
+        <button onclick="placeOrder()" id="placeOrderBtn" class="primary-btn w-full">Place Order</button>
+      </div>
+    </div>
+    <!-- ORDER SUCCESS VIEW -->
+    <div id="successView" class="hidden flex-1 flex-col items-center justify-center p-8 text-center">
+      <div class="mb-6 grid h-20 w-20 place-items-center rounded-full bg-cyan-400/10 text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3 class="text-2xl font-black">Order Confirmed!</h3>
+      <p class="mt-2 text-zinc-400">Your order has been placed successfully.</p>
+      <p class="mt-1 font-mono text-sm text-cyan-400" id="orderId"></p>
+      <p class="mt-4 text-sm text-zinc-500">We'll contact you on <span id="orderPhone" class="text-zinc-300"></span> shortly to confirm delivery.</p>
+      <button onclick="closeCart()" class="primary-btn mt-8">Continue Shopping</button>
+    </div>
+  </div>
+</aside>
+
+<!-- CHATBOT -->
+<button onclick="toggleChat()" id="chatToggle" class="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-cyan-400 text-black shadow-[0_0_30px_rgba(34,211,238,.4)] transition hover:scale-110">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span id="chatBadge" class="absolute -right-1 -top-1 grid h-5 w-5 place-items-center rounded-full bg-red-500 text-[.6rem] font-bold text-white">1</span>
+</button>
+<div id="chatWidget" class="drawer fixed bottom-24 right-6 z-50 flex hidden h-[30rem] w-[22rem] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink shadow-2xl">
+  <div class="flex items-center justify-between border-b border-white/10 bg-panel/50 p-4">
+    <div class="flex items-center gap-3">
+      <div class="grid h-10 w-10 place-items-center rounded-full bg-cyan-400/10 text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <div>
+        <p class="text-sm font-bold">NEXORA Assistant</p>
+        <p class="flex items-center gap-1 text-xs text-cyan-400"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>Online</p>
+      </div>
+    </div>
+    <button onclick="toggleChat()" class="grid h-8 w-8 place-items-center rounded-lg hover:bg-white/10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="chatMessages" class="flex-1 space-y-3 overflow-y-auto p-4"></div>
+  <form onsubmit="sendChat(event)" class="flex gap-2 border-t border-white/10 p-3">
+    <input id="chatInput" maxlength="500" class="field-input flex-1 !py-2 text-sm" placeholder="Ask about products..." />
+    <button type="submit" class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-cyan-400 text-black hover:bg-cyan-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </form>
+</div>
+
+<!-- AUTH MODAL -->
+<div id="authOverlay" onclick="closeAuthOnOverlay(event)" class="modal fixed inset-0 z-[60] hidden items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
+  <div class="relative w-full max-w-md rounded-2xl border border-white/10 bg-ink p-8 shadow-2xl">
+    <button onclick="closeAuth()" class="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-lg hover:bg-white/10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- LOGIN -->
+    <div id="authLogin">
+      <div class="mb-6 text-center">
+        <span class="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl bg-cyan-400 text-black font-mono text-xl font-black">N</span>
+        <h3 class="text-2xl font-black">Welcome back</h3>
+        <p class="mt-1 text-sm text-zinc-400">Sign in to your NEXORA account</p>
+      </div>
+      <form onsubmit="handleLogin(event)" class="space-y-4">
+        <div><label class="badge text-zinc-500">Email</label><input required type="email" name="email" class="field-input mt-2" placeholder="you@email.com" /></div>
+        <div><label class="badge text-zinc-500">Password</label><input required type="password" name="password" minlength="6" class="field-input mt-2" placeholder="••••••••" /></div>
+        <div class="text-right"><button type="button" onclick="switchAuth('forgot')" class="text-xs text-cyan-400 hover:underline">Forgot password?</button></div>
+        <p id="loginError" class="hidden rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400"></p>
+        <button type="submit" class="primary-btn w-full" id="loginSubmit">Sign In</button>
+      </form>
+      <div class="my-5 flex items-center gap-3 text-xs text-zinc-500"><div class="h-px flex-1 bg-white/10"></div>OR<div class="h-px flex-1 bg-white/10"></div></div>
+      <button onclick="handleGoogle()" class="secondary-btn w-full">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Continue with Google
+      </button>
+      <p class="mt-6 text-center text-sm text-zinc-400">New here? <button onclick="switchAuth('register')" class="font-semibold text-cyan-400 hover:underline">Create account</button></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="authRegister" class="hidden">
+      <div class="mb-6 text-center">
+        <span class="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl bg-cyan-400 text-black font-mono text-xl font-black">N</span>
+        <h3 class="text-2xl font-black">Create account</h3>
+        <p class="mt-1 text-sm text-zinc-400">Join NEXORA in seconds</p>
+      </div>
+      <form onsubmit="handleRegister(event)" class="space-y-4">
+        <div><label class="badge text-zinc-500">Full Name</label><input required name="name" maxlength="80" class="field-input mt-2" placeholder="Your name" /></div>
+        <div><label class="badge text-zinc-500">Email</label><input required type="email" name="email" class="field-input mt-2" placeholder="you@email.com" /></div>
+        <div><label class="badge text-zinc-500">Password</label><input required type="password" name="password" minlength="6" class="field-input mt-2" placeholder="Min 6 characters" /></div>
+        <div><label class="badge text-zinc-500">Confirm Password</label><input required type="password" name="confirm" minlength="6" class="field-input mt-2" placeholder="Re-enter password" /></div>
+        <p id="registerError" class="hidden rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400"></p>
+        <button type="submit" class="primary-btn w-full" id="registerSubmit">Create Account</button>
+      </form>
+      <div class="my-5 flex items-center gap-3 text-xs text-zinc-500"><div class="h-px flex-1 bg-white/10"></div>OR<div class="h-px flex-1 bg-white/10"></div></div>
+      <button onclick="handleGoogle()" class="secondary-btn w-full">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Sign up with Google
+      </button>
+      <p class="mt-6 text-center text-sm text-zinc-400">Already have an account? <button onclick="switchAuth('login')" class="font-semibold text-cyan-400 hover:underline">Sign in</button></p>
+    </div>
+
+    <!-- FORGOT -->
+    <div id="authForgot" class="hidden">
+      <div class="mb-6 text-center">
+        <span class="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl bg-cyan-400/10 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+        <h3 class="text-2xl font-black">Reset password</h3>
+        <p class="mt-1 text-sm text-zinc-400">We'll send a reset code to your email</p>
+      </div>
+      <form onsubmit="handleForgot(event)" class="space-y-4">
+        <div><label class="badge text-zinc-500">Email</label><input required type="email" name="email" class="field-input mt-2" placeholder="you@email.com" /></div>
+        <p id="forgotMsg" class="hidden rounded-lg border border-cyan-400/30 bg-cyan-400/10 p-3 text-sm text-cyan-400"></p>
+        <button type="submit" class="primary-btn w-full" id="forgotSubmit">Send Reset Code</button>
+      </form>
+      <p class="mt-6 text-center text-sm text-zinc-400">Remember it? <button onclick="switchAuth('login')" class="font-semibold text-cyan-400 hover:underline">Sign in</button></p>
+    </div>
+
+    <!-- RESET -->
+    <div id="authReset" class="hidden">
+      <div class="mb-6 text-center">
+        <span class="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-xl bg-cyan-400/10 text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <h3 class="text-2xl font-black">Set new password</h3>
+        <p class="mt-1 text-sm text-zinc-400">Enter the code we sent to <span id="resetEmail" class="text-cyan-400"></span></p>
+      </div>
+      <form onsubmit="handleReset(event)" class="space-y-4">
+        <div><label class="badge text-zinc-500">Reset Code</label><input required name="code" maxlength="6" class="field-input mt-2 text-center font-mono tracking-[.5em]" placeholder="123456" /></div>
+        <div><label class="badge text-zinc-500">New Password</label><input required type="password" name="password" minlength="6" class="field-input mt-2" placeholder="Min 6 characters" /></div>
+        <div><label class="badge text-zinc-500">Confirm Password</label><input required type="password" name="confirm" minlength="6" class="field-input mt-2" placeholder="Re-enter password" /></div>
+        <p id="resetError" class="hidden rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400"></p>
+        <button type="submit" class="primary-btn w-full" id="resetSubmit">Reset Password</button>
+      </form>
+      <p class="mt-6 text-center text-sm text-zinc-400">Back to <button onclick="switchAuth('login')" class="font-semibold text-cyan-400 hover:underline">Sign in</button></p>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="fixed bottom-6 left-1/2 z-[70] -translate-x-1/2 translate-y-20 rounded-xl border border-cyan-400/30 bg-ink/95 px-5 py-3 text-sm font-medium opacity-0 transition-all duration-300"></div>
+
+<script>
+const PRODUCTS = [
+{"name":"NEXORA BeamX","slug":"nexora-beamx","category":"Smart Devices","description":"Portable smart projector with 1080p HDR projection, auto-focus, and 4-hour battery.","price":45999,"oldPrice":54999,"rating":4.7,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/ea4a2867d_generated_image.png","specs":["1080p HDR","Auto-focus","4h battery","Built-in speaker"],"featured":true},
+{"name":"NEXORA PulseBand","slug":"nexora-pulseband","category":"Smart Devices","description":"Fitness tracker with AMOLED display, SpO2 monitoring, 14-day battery, and 100+ workout modes.","price":12999,"oldPrice":16999,"rating":4.6,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/22432c858_generated_image.png","specs":["AMOLED display","SpO2 monitor","14-day battery","5ATM water resistant"],"featured":true},
+{"name":"NEXORA KeyForge","slug":"nexora-keyforge","category":"Keyboards & Mice","description":"Mechanical keyboard with hot-swappable switches, per-key RGB, and an aluminum frame.","price":18999,"oldPrice":22999,"rating":4.9,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/21d2ef5c1_generated_image.png","specs":["Hot-swap switches","Per-key RGB","Aluminum frame","USB-C"],"featured":true},
+{"name":"NEXORA VoltCore","slug":"nexora-voltcore","category":"Charging","description":"20000mAh power bank with 100W fast charging, dual USB-C, and a digital charge display.","price":8999,"oldPrice":11999,"rating":4.8,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/915d4f283_generated_image.png","specs":["20000mAh","100W fast charge","Dual USB-C","LED display"],"featured":true},
+{"name":"NEXORA AuraLamp","slug":"nexora-auralamp","category":"Laptop Accessories","description":"Smart LED desk lamp with 10 brightness levels, 5 color temperatures, and wireless charging base.","price":6999,"oldPrice":8999,"rating":4.5,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/0f1468d04_generated_image.png","specs":["10 brightness levels","5 color temps","Wireless charging base","Touch control"],"featured":true},
+{"name":"NEXORA StrikePad","slug":"nexora-strikepad","category":"Gaming","description":"RGB gaming mousepad with 16.8M colors, 1ms response, and a non-slip vulcanized base.","price":4999,"oldPrice":6499,"rating":4.7,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/575adca8a_generated_image.png","specs":["16.8M RGB colors","1ms response","Vulcanized base","Micro-USB powered"],"featured":true},
+{"name":"NEXORA AirSound Pro","slug":"airsound-pro","category":"Audio","description":"Wireless Noise-Cancelling Headphones","price":12999,"oldPrice":14999,"rating":4.9,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/47320a483_generated_0a0deb20.png","specs":["40mm spatial drivers","32-hour battery","Adaptive ANC","Bluetooth 5.3"],"featured":true},
+{"name":"NEXORA TypeX","slug":"typex","category":"Keyboards & Mice","description":"Wireless Mechanical Keyboard","price":8499,"oldPrice":9999,"rating":4.8,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/2c50c5aa9_generated_63063e63.png","specs":["Low-profile switches","Tri-mode wireless","RGB edge light","Pakistan layout"],"featured":true},
+{"name":"NEXORA Glide","slug":"glide","category":"Keyboards & Mice","description":"Precision Wireless Mouse","price":4999,"oldPrice":null,"rating":4.7,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/ebbfdf047_generated_874044ac.png","specs":["26K optical sensor","68g lightweight body","70-hour battery","Silent clicks"],"featured":true},
+{"name":"NEXORA Power100","slug":"power100","category":"Charging","description":"100W GaN USB-C Charger","price":6999,"oldPrice":7999,"rating":4.9,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/184a4aa4c_generated_f0e6c0ee.png","specs":["100W USB-C PD","GaN efficiency","Three ports","Travel ready"],"featured":true},
+{"name":"NEXORA MagDock","slug":"magdock","category":"Charging","description":"Magnetic Wireless Charging Stand","price":5499,"oldPrice":null,"rating":4.6,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/8fbb83269_generated_5df27abb.png","specs":["15W fast charging","Adjustable viewing angle","Weighted aluminum base","Case compatible"],"featured":true},
+{"name":"NEXORA HubX","slug":"hubx","category":"Laptop Accessories","description":"USB-C Multi-Port Hub","price":7499,"oldPrice":8499,"rating":4.8,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/8eeb71d1a_generated_c7875220.png","specs":["8 essential ports","4K HDMI output","100W pass-through","Gigabit ethernet"],"featured":true},
+{"name":"NEXORA LightOne","slug":"lightone","category":"Smart Devices","description":"Smart LED Desk Lamp","price":5999,"oldPrice":null,"rating":4.7,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/95d1b1f75_generated_411625dd.png","specs":["Flicker-free light","Touch controls","Five color temperatures","USB-C powered"],"featured":true},
+{"name":"NEXORA Lift","slug":"lift","category":"Laptop Accessories","description":"Premium Laptop Stand","price":4499,"oldPrice":null,"rating":4.8,"image":"https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/b57601e9d_generated_45adc4d2.png","specs":["CNC aluminum","Six height levels","Ventilated design","Foldable profile"],"featured":true}
+];
+
+const CATEGORIES = ["Audio","Keyboards & Mice","Charging","Smart Devices","Laptop Accessories","Gaming"];
+const catIcons = { "Audio":"🎵","Keyboards & Mice":"⌨️","Charging":"🔋","Smart Devices":"📱","Laptop Accessories":"💻","Gaming":"🎮" };
+const fmt = n => "Rs. " + n.toLocaleString();
+const DELIVERY = 250;
+
+let cart = JSON.parse(localStorage.getItem("nexora_cart") || "[]");
+let activeFilter = "All";
+let currentUser = JSON.parse(localStorage.getItem("nexora_user") || "null");
+let resetCodeData = null;
+let chatHistory = [];
+
+function saveCart(){ localStorage.setItem("nexora_cart", JSON.stringify(cart)); updateCart(); }
+
+function stars(r){ let s=""; for(let i=1;i<=5;i++) s += i<=Math.round(r)?"★":"☆"; return s; }
+
+// Call a Base44 backend function via HTTP (works once the app is published)
+async function callFunction(name, payload){
+  try{
+    const res = await fetch("/functions/" + name, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    return await res.json();
+  }catch(err){
+    console.warn("Backend call failed (" + name + "), using fallback:", err.message);
+    return null;
+  }
+}
+
+function productCard(p){
+  const off = p.oldPrice ? Math.round((1 - p.price/p.oldPrice)*100) : 0;
+  return `<div class="card flex flex-col">
+    <div class="relative aspect-square overflow-hidden bg-black/40">
+      <img src="${p.image}" alt="${p.name}" loading="lazy" class="h-full w-full object-cover" />
+      ${off?`<span class="absolute left-3 top-3 rounded-md bg-cyan-400 px-2 py-1 text-[.62rem] font-bold text-black">-${off}%</span>`:""}
+      <span class="absolute right-3 top-3 rounded-md bg-black/60 px-2 py-1 text-[.62rem] font-mono text-cyan-400">${p.category}</span>
+    </div>
+    <div class="flex flex-1 flex-col p-4">
+      <div class="mb-1 text-xs text-cyan-400">${stars(p.rating)} <span class="text-zinc-500">${p.rating}</span></div>
+      <h3 class="font-semibold leading-tight">${p.name}</h3>
+      <p class="mt-1 line-clamp-2 text-xs text-zinc-400">${p.description}</p>
+      <div class="mt-3 flex items-center gap-2">
+        <span class="text-lg font-bold">${fmt(p.price)}</span>
+        ${p.oldPrice?`<span class="text-sm text-zinc-500 line-through">${fmt(p.oldPrice)}</span>`:""}
+      </div>
+      <button onclick="addToCart('${p.slug}')" class="primary-btn mt-4 w-full !py-2 text-xs">Add to Cart</button>
+    </div>
+  </div>`;
+}
+
+function renderFeatured(){ document.getElementById("featuredGrid").innerHTML = PRODUCTS.filter(p=>p.featured).slice(0,8).map(productCard).join(""); }
+
+function renderCategories(){
+  document.getElementById("categoryGrid").innerHTML = CATEGORIES.map(c => `
+    <button onclick="filterCat('${c}')" class="card group flex flex-col items-center gap-3 p-6 text-center">
+      <span class="text-3xl transition group-hover:scale-110">${catIcons[c]}</span>
+      <span class="text-sm font-medium">${c}</span>
+      <span class="text-xs text-zinc-500">${PRODUCTS.filter(p=>p.category===c).length} items</span>
+    </button>`).join("");
+}
+
+function renderFilters(){
+  const cats = ["All", ...CATEGORIES];
+  document.getElementById("filterBar").innerHTML = cats.map(c => `
+    <button onclick="filterCat('${c}')" class="rounded-lg border px-4 py-2 text-xs font-medium transition ${c===activeFilter?'border-cyan-400 bg-cyan-400/10 text-cyan-400':'border-white/10 text-zinc-400 hover:border-white/30'}">${c}</button>
+  `).join("");
+}
+
+function renderShop(){
+  const list = activeFilter==="All" ? PRODUCTS : PRODUCTS.filter(p=>p.category===activeFilter);
+  document.getElementById("shopGrid").innerHTML = list.map(productCard).join("");
+}
+
+function filterCat(c){ activeFilter = c; renderFilters(); renderShop(); document.getElementById("shop").scrollIntoView({behavior:"smooth"}); }
+
+function addToCart(slug){
+  const p = PRODUCTS.find(x=>x.slug===slug);
+  const item = cart.find(x=>x.slug===slug);
+  if(item) item.qty++; else cart.push({slug, name:p.name, price:p.price, image:p.image, qty:1});
+  saveCart(); toast(`${p.name} added to cart`); toggleCart(true);
+}
+
+function changeQty(slug, d){
+  const item = cart.find(x=>x.slug===slug);
+  if(!item) return;
+  item.qty += d;
+  if(item.qty<=0) cart = cart.filter(x=>x.slug!==slug);
+  saveCart();
+}
+
+function updateCart(){
+  const count = cart.reduce((n,x)=>n+x.qty,0);
+  document.getElementById("cartCount").textContent = count;
+  const el = document.getElementById("cartItems");
+  if(!cart.length){
+    el.innerHTML = `<div class="flex h-full flex-col items-center justify-center gap-3 text-center text-zinc-500"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is empty</p><a href="#shop" onclick="closeCart()" class="text-cyan-400">Browse products →</a></div>`;
+  } else {
+    el.innerHTML = cart.map(x=>`
+      <div class="flex gap-3 border-b border-white/10 py-4">
+        <img src="${x.image}" class="h-16 w-16 rounded-lg object-cover" />
+        <div class="flex-1">
+          <h4 class="text-sm font-medium">${x.name}</h4>
+          <p class="text-xs text-zinc-400">${fmt(x.price)}</p>
+          <div class="mt-2 flex items-center gap-3">
+            <button onclick="changeQty('${x.slug}',-1)" class="grid h-7 w-7 place-items-center rounded-md border border-white/10 hover:bg-white/10">−</button>
+            <span class="text-sm">${x.qty}</span>
+            <button onclick="changeQty('${x.slug}',1)" class="grid h-7 w-7 place-items-center rounded-md border border-white/10 hover:bg-white/10">+</button>
+          </div>
+        </div>
+        <span class="text-sm font-semibold">${fmt(x.price*x.qty)}</span>
+      </div>`).join("");
+  }
+  const sub = cart.reduce((n,x)=>n+x.price*x.qty,0);
+  document.getElementById("cartSubtotal").textContent = fmt(sub);
+  document.getElementById("cartTotal").textContent = fmt(sub + (sub>0?DELIVERY:0));
+  document.getElementById("coSubtotal").textContent = fmt(sub);
+  document.getElementById("coTotal").textContent = fmt(sub + (sub>0?DELIVERY:0));
+}
+
+function toggleCart(force){
+  const open = force!==undefined ? force : document.getElementById("cartDrawer").classList.contains("translate-x-full");
+  document.getElementById("cartDrawer").classList.toggle("translate-x-full", !open);
+  document.getElementById("cartOverlay").classList.toggle("hidden", !open);
+  if(open) showCartView();
+}
+function closeCart(){ toggleCart(false); }
+
+function showCartView(){
+  document.getElementById("cartTitle").textContent = "Your Cart";
+  document.getElementById("cartView").classList.remove("hidden"); document.getElementById("cartView").classList.add("flex");
+  document.getElementById("checkoutView").classList.add("hidden"); document.getElementById("checkoutView").classList.remove("flex");
+  document.getElementById("successView").classList.add("hidden"); document.getElementById("successView").classList.remove("flex");
+}
+
+function goToCheckout(){
+  if(!cart.length) return toast("Your cart is empty");
+  document.getElementById("cartTitle").textContent = "Checkout";
+  document.getElementById("cartView").classList.add("hidden"); document.getElementById("cartView").classList.remove("flex");
+  document.getElementById("checkoutView").classList.remove("hidden"); document.getElementById("checkoutView").classList.add("flex");
+  document.getElementById("successView").classList.add("hidden");
+}
+
+function backToCart(){ showCartView(); }
+
+async function placeOrder(e){
+  if(e) e.preventDefault();
+  const form = document.getElementById("checkoutForm");
+  const data = Object.fromEntries(new FormData(form));
+  if(!data.name || !data.phone || !data.email || !data.address || !data.city){
+    return toast("Please fill all required fields");
+  }
+  const btn = document.getElementById("placeOrderBtn");
+  btn.disabled = true; btn.textContent = "Placing Order...";
+  const items = cart.map(x => ({ id: x.slug, name: x.name, price: x.price, qty: x.qty, image: x.image }));
+  const result = await callFunction("placeOrder", { items, customer: data, paymentMethod: data.payment || "cod" });
+  let orderId;
+  if(result && result.status === "success" && result.order){
+    orderId = result.order.id; // real backend order
+  } else {
+    orderId = "NX" + Date.now().toString().slice(-8); // fallback local order
+    const orders = JSON.parse(localStorage.getItem("nexora_orders") || "[]");
+    orders.push({ id: orderId, items: cart, customer: data, paymentMethod: data.payment || "cod", status: "pending", date: new Date().toISOString() });
+    localStorage.setItem("nexora_orders", JSON.stringify(orders));
+  }
+  btn.disabled = false; btn.textContent = "Place Order";
+  // show success
+  document.getElementById("cartTitle").textContent = "Order Placed";
+  document.getElementById("checkoutView").classList.add("hidden"); document.getElementById("checkoutView").classList.remove("flex");
+  document.getElementById("successView").classList.remove("hidden"); document.getElementById("successView").classList.add("flex");
+  document.getElementById("orderId").textContent = "Order #" + orderId;
+  document.getElementById("orderPhone").textContent = data.phone;
+  cart = []; saveCart();
+  toast("Order placed successfully! 🎉");
+}
+
+function toggleMenu(){ document.getElementById("mobileMenu").classList.toggle("translate-x-full"); }
+
+async function sendMessage(e){
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  e.target.reset();
+  const msgEl = document.getElementById("formMsg");
+  msgEl.textContent = "Sending...";
+  msgEl.classList.remove("hidden");
+  const result = await callFunction("sendContact", { name: data.name, email: data.email, message: data.message });
+  if(result && result.status === "success"){
+    msgEl.textContent = "Thanks! We'll be in touch shortly.";
+  } else {
+    msgEl.textContent = "Thanks! We'll be in touch shortly.";
+  }
+  setTimeout(()=>msgEl.classList.add("hidden"), 4000);
+}
+
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.remove("opacity-0","translate-y-20");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.add("opacity-0","translate-y-20"), 2500);
+}
+
+/* ===== AUTH ===== */
+function openAuth(view){ switchAuth(view || "login"); document.getElementById("authOverlay").classList.remove("hidden"); document.getElementById("authOverlay").classList.add("flex"); }
+function closeAuth(){ document.getElementById("authOverlay").classList.add("hidden"); document.getElementById("authOverlay").classList.remove("flex"); }
+function closeAuthOnOverlay(e){ if(e.target.id==="authOverlay") closeAuth(); }
+function switchAuth(view){
+  ["authLogin","authRegister","authForgot","authReset"].forEach(id => document.getElementById(id).classList.add("hidden"));
+  document.getElementById("auth" + view.charAt(0).toUpperCase() + view.slice(1)).classList.remove("hidden");
+  ["loginError","registerError","resetError"].forEach(id => document.getElementById(id).classList.add("hidden"));
+}
+
+function updateAuthUI(){
+  const btn = document.getElementById("authBtn");
+  const label = document.getElementById("authBtnLabel");
+  const mobileBtn = document.getElementById("authBtnMobile");
+  if(currentUser){
+    btn.classList.remove("hidden"); btn.classList.add("flex");
+    label.textContent = currentUser.name.split(" ")[0];
+    btn.onclick = logout;
+    mobileBtn.textContent = "Sign out (" + currentUser.name.split(" ")[0] + ")";
+    mobileBtn.onclick = function(){ toggleMenu(); logout(); };
+  } else {
+    btn.classList.add("hidden"); btn.classList.remove("flex");
+    mobileBtn.textContent = "Sign in";
+    mobileBtn.onclick = function(){ toggleMenu(); openAuth("login"); };
+  }
+}
+
+function handleLogin(e){
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const err = document.getElementById("loginError");
+  const users = JSON.parse(localStorage.getItem("nexora_users") || "[]");
+  const user = users.find(u => u.email === data.email);
+  if(!user || user.password !== data.password){
+    err.textContent = "Invalid email or password"; err.classList.remove("hidden"); return;
+  }
+  currentUser = { id: user.id, name: user.name, email: user.email };
+  localStorage.setItem("nexora_user", JSON.stringify(currentUser));
+  e.target.reset(); closeAuth(); updateAuthUI();
+  toast("Welcome back, " + currentUser.name.split(" ")[0] + "! 👋");
+}
+
+function handleRegister(e){
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const err = document.getElementById("registerError");
+  if(data.password !== data.confirm){ err.textContent = "Passwords don't match"; err.classList.remove("hidden"); return; }
+  const users = JSON.parse(localStorage.getItem("nexora_users") || "[]");
+  if(users.find(u => u.email === data.email)){ err.textContent = "Email already registered"; err.classList.remove("hidden"); return; }
+  const user = { id: "u" + Date.now(), name: data.name, email: data.email, password: data.password };
+  users.push(user); localStorage.setItem("nexora_users", JSON.stringify(users));
+  currentUser = { id: user.id, name: user.name, email: user.email };
+  localStorage.setItem("nexora_user", JSON.stringify(currentUser));
+  e.target.reset(); closeAuth(); updateAuthUI();
+  toast("Account created! Welcome to NEXORA 🎉");
+}
+
+function handleForgot(e){
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const msg = document.getElementById("forgotMsg");
+  const code = Math.floor(100000 + Math.random()*900000).toString();
+  resetCodeData = { email: data.email, code };
+  localStorage.setItem("nexora_reset", JSON.stringify(resetCodeData));
+  msg.textContent = "Reset code sent to " + data.email + " (demo code: " + code + ")";
+  msg.classList.remove("hidden");
+  setTimeout(()=>{
+    document.getElementById("resetEmail").textContent = data.email;
+    switchAuth("reset");
+  }, 1500);
+}
+
+function handleReset(e){
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const err = document.getElementById("resetError");
+  const stored = JSON.parse(localStorage.getItem("nexora_reset") || "null");
+  if(!stored || data.code !== stored.code){ err.textContent = "Invalid reset code"; err.classList.remove("hidden"); return; }
+  if(data.password !== data.confirm){ err.textContent = "Passwords don't match"; err.classList.remove("hidden"); return; }
+  const users = JSON.parse(localStorage.getItem("nexora_users") || "[]");
+  const user = users.find(u => u.email === stored.email);
+  if(user){ user.password = data.password; localStorage.setItem("nexora_users", JSON.stringify(users)); }
+  localStorage.removeItem("nexora_reset"); resetCodeData = null;
+  e.target.reset(); closeAuth();
+  toast("Password reset! You can sign in now.");
+  switchAuth("login");
+}
+
+function handleGoogle(){
+  const name = "Google User";
+  const email = "googleuser@gmail.com";
+  const users = JSON.parse(localStorage.getItem("nexora_users") || "[]");
+  if(!users.find(u => u.email === email)) users.push({ id: "g" + Date.now(), name, email, password: "google_oauth" });
+  localStorage.setItem("nexora_users", JSON.stringify(users));
+  currentUser = { id: "g" + Date.now(), name, email };
+  localStorage.setItem("nexora_user", JSON.stringify(currentUser));
+  closeAuth(); updateAuthUI();
+  toast("Signed in with Google! 👋");
+}
+
+function logout(){
+  currentUser = null; localStorage.removeItem("nexora_user");
+  updateAuthUI(); toast("Signed out");
+}
+
+/* ===== CHATBOT ===== */
+function toggleChat(){
+  const w = document.getElementById("chatWidget");
+  const open = w.classList.contains("hidden");
+  w.classList.toggle("hidden");
+  document.getElementById("chatBadge").style.display = open ? "none" : "flex";
+  if(open && chatHistory.length === 0){
+    addChatMessage("bot", "Hi! I'm the NEXORA assistant. Ask me about products, delivery, or pricing — I'm here to help! 🚀");
+    chatHistory.push({role:"bot", content:"Hi! I'm the NEXORA assistant. Ask me about products, delivery, or pricing — I'm here to help! 🚀"});
+  }
+}
+
+function addChatMessage(role, text){
+  const el = document.getElementById("chatMessages");
+  const bubble = document.createElement("div");
+  bubble.className = "chat-msg flex " + (role==="user" ? "justify-end" : "justify-start");
+  bubble.innerHTML = `<div class="max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm ${role==='user' ? 'bg-cyan-400 text-black' : 'bg-white/5 text-zinc-200'}">${text}</div>`;
+  el.appendChild(bubble);
+  el.scrollTop = el.scrollHeight;
+}
+
+function sendChat(e){
+  e.preventDefault();
+  const input = document.getElementById("chatInput");
+  const msg = input.value.trim();
+  if(!msg) return;
+  addChatMessage("user", msg);
+  chatHistory.push({role:"user", content:msg});
+  input.value = "";
+  // typing indicator
+  const el = document.getElementById("chatMessages");
+  const typing = document.createElement("div");
+  typing.className = "chat-msg flex justify-start";
+  typing.id = "typing";
+  typing.innerHTML = `<div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-zinc-400"><span class="animate-pulse">typing...</span></div>`;
+  el.appendChild(typing); el.scrollTop = el.scrollHeight;
+  setTimeout(async ()=>{
+    typing.remove();
+    const history = chatHistory.map(m => ({ role: m.role==="bot" ? "assistant" : "user", content: m.content }));
+    const result = await callFunction("chatbot", { message: msg, history });
+    let reply;
+    if(result && result.status === "success" && result.reply){
+      reply = result.reply;
+    } else {
+      reply = botReply(msg); // fallback to local logic
+    }
+    addChatMessage("bot", reply);
+    chatHistory.push({role:"bot", content:reply});
+  }, 400);
+}
+
+function botReply(msg){
+  const q = msg.toLowerCase();
+  // product recommendations
+  if(q.includes("headphone") || q.includes("earphone") || q.includes("audio") || q.includes("anc")){
+    const p = PRODUCTS.find(x=>x.slug==="airsound-pro");
+    return `🎧 The ${p.name} is our top pick — ${p.description} at ${fmt(p.price)} (rating ${p.rating}★). Want me to add it to your cart?`;
+  }
+  if(q.includes("keyboard") || q.includes("key")){
+    const p = PRODUCTS.find(x=>x.slug==="nexora-keyforge") || PRODUCTS.find(x=>x.category==="Keyboards & Mice");
+    return `⌨️ Check out the ${p.name} — ${p.description} at ${fmt(p.price)}. We also have the TypeX and Glide in this category!`;
+  }
+  if(q.includes("charge") || q.includes("power") || q.includes("powerbank") || q.includes("power bank")){
+    const p = PRODUCTS.find(x=>x.slug==="nexora-voltcore");
+    return `🔋 The ${p.name} is perfect — ${p.description} at ${fmt(p.price)}. We also have the Power100 charger and MagDock wireless stand.`;
+  }
+  if(q.includes("mouse") || q.includes("mousepad") || q.includes("gaming")){
+    const p = PRODUCTS.find(x=>x.slug==="nexora-strikepad");
+    return `🎮 For gaming, the ${p.name} is a fan favorite at ${fmt(p.price)}. We also have the Glide precision mouse!`;
+  }
+  if(q.includes("lamp") || q.includes("light")){
+    const p = PRODUCTS.find(x=>x.slug==="nexora-auralamp");
+    return `💡 The ${p.name} — ${p.description} at ${fmt(p.price)}. Great for your desk setup!`;
+  }
+  if(q.includes("projector")){
+    const p = PRODUCTS.find(x=>x.slug==="nexora-beamx");
+    return `📽️ The ${p.name} turns any wall into a cinema — ${fmt(p.price)} (${p.rating}★). 4-hour battery life!`;
+  }
+  if(q.includes("fitness") || q.includes("band") || q.includes("tracker") || q.includes("smartwatch")){
+    const p = PRODUCTS.find(x=>x.slug==="nexora-pulseband");
+    return `⌚ The ${p.name} — ${p.description} at ${fmt(p.price)}. 14-day battery and 100+ workout modes!`;
+  }
+  if(q.includes("laptop") || q.includes("stand") || q.includes("hub")){
+    const items = PRODUCTS.filter(x=>x.category==="Laptop Accessories");
+    return `💻 We have ${items.length} laptop accessories: ${items.map(x=>x.name).join(", ")}. Prices from ${fmt(Math.min(...items.map(x=>x.price)))}.`;
+  }
+  if(q.includes("delivery") || q.includes("shipping")){
+    return `📦 We offer same-day delivery within Lahore and 2-3 day delivery nationwide. Delivery fee is ${fmt(DELIVERY)}. Cash on Delivery is available!`;
+  }
+  if(q.includes("payment") || q.includes("pay")){
+    return `💳 We accept Cash on Delivery. Online payment (card/bank transfer) is coming soon!`;
+  }
+  if(q.includes("return") || q.includes("refund") || q.includes("warranty")){
+    return `↩️ We offer easy 7-day returns on all products. If something's not right, we'll make it hassle-free.`;
+  }
+  if(q.includes("price") || q.includes("cost") || q.includes("expensive") || q.includes("cheap")){
+    const prices = PRODUCTS.map(x=>x.price);
+    return `💰 Our products range from ${fmt(Math.min(...prices))} to ${fmt(Math.max(...prices))}. Use the category filters on the Shop page to find your budget!`;
+  }
+  if(q.includes("contact") || q.includes("support") || q.includes("help") || q.includes("email")){
+    return `✉️ You can reach us at hello@nexora.pk or use the contact form on this page. We're available Mon-Sat, 10am-8pm PKT.`;
+  }
+  if(q.includes("location") || q.includes("where") || q.includes("address")){
+    return `📍 We're based in Lahore, Punjab, Pakistan, delivering nationwide!`;
+  }
+  if(q.includes("recommend") || q.includes("best") || q.includes("popular") || q.includes("suggest")){
+    return `⭐ Our most popular picks: AirSound Pro headphones (4.9★), KeyForge mechanical keyboard (4.9★), and VoltCore power bank (4.8★). What are you looking for?`;
+  }
+  if(q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("salam") || q.includes("assalam")){
+    return `Hello! 👋 Welcome to NEXORA. I can help you find products, check prices, or answer questions about delivery and returns. What are you looking for today?`;
+  }
+  if(q.includes("thank")){
+    return `You're welcome! 😊 Feel free to ask if you need anything else.`;
+  }
+  if(q.includes("buy") || q.includes("order") || q.includes("cart")){
+    return `🛒 Just hit "Add to Cart" on any product, then click the cart icon to checkout. We offer Cash on Delivery across Pakistan!`;
+  }
+  // default: list categories
+  return `I can help with products, pricing, delivery, and returns. We have ${PRODUCTS.length} products across ${CATEGORIES.length} categories: ${CATEGORIES.join(", ")}. What interests you?`;
+}
+
+/* ===== 3D HERO ===== */
+function initHero3D(){
+  const mount = document.getElementById("hero3d");
+  if(!mount || !window.THREE) return;
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x0a0a0a, 0.038);
+  const w = mount.clientWidth || window.innerWidth;
+  const h = mount.clientHeight || window.innerHeight;
+  const camera = new THREE.PerspectiveCamera(62, w/h, 0.1, 100);
+  camera.position.set(0,0,14);
+  const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+  renderer.setSize(w,h); renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  mount.appendChild(renderer.domElement);
+  scene.add(new THREE.AmbientLight(0x22d3ee, 0.4));
+  const p1 = new THREE.PointLight(0x22d3ee, 2.4, 70); p1.position.set(8,8,14); scene.add(p1);
+  const p2 = new THREE.PointLight(0x67e8f9, 1.6, 60); p2.position.set(-10,-6,10); scene.add(p2);
+  const geos = [()=>new THREE.IcosahedronGeometry(1.3,0),()=>new THREE.TorusGeometry(0.9,0.28,12,32),()=>new THREE.OctahedronGeometry(1.1,0),()=>new THREE.BoxGeometry(1.3,1.3,1.3),()=>new THREE.DodecahedronGeometry(1,0),()=>new THREE.TorusGeometry(0.7,0.22,10,24),()=>new THREE.TetrahedronGeometry(1.2,0)];
+  const shapes = [];
+  for(let i=0;i<20;i++){
+    const geo = geos[i%geos.length]();
+    const accent = Math.random()>0.7;
+    const mat = new THREE.MeshBasicMaterial({ color: accent?0x67e8f9:0x22d3ee, wireframe:true, transparent:true, opacity:0.3+Math.random()*0.35 });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set((Math.random()-0.5)*24, (Math.random()-0.5)*14, (Math.random()-0.5)*10-1);
+    const s = 0.45+Math.random()*1.1; mesh.scale.set(s,s,s);
+    mesh.userData = { rx:(Math.random()-0.5)*0.02, ry:(Math.random()-0.5)*0.02, rz:(Math.random()-0.5)*0.01, float:Math.random()*Math.PI*2, speed:0.3+Math.random()*0.7, amp:0.004+Math.random()*0.006, pulse:Math.random()*Math.PI*2, pulseSpeed:0.6+Math.random()*1.2, baseScale:s };
+    scene.add(mesh); shapes.push(mesh);
+  }
+  const ringGroup = new THREE.Group();
+  for(let i=0;i<3;i++){
+    const r = 4+i*1.6;
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(r,0.04,8,80), new THREE.MeshBasicMaterial({ color:0x22d3ee, transparent:true, opacity:0.22-i*0.05 }));
+    ring.rotation.x = Math.PI/2+i*0.3; ring.rotation.y = i*0.4; ringGroup.add(ring);
+  }
+  ringGroup.position.set(2,-1,-3); scene.add(ringGroup);
+  const pCount = 650;
+  const pGeo = new THREE.BufferGeometry();
+  const positions = new Float32Array(pCount*3);
+  for(let i=0;i<pCount*3;i++) positions[i] = (Math.random()-0.5)*46;
+  pGeo.setAttribute('position', new THREE.BufferAttribute(positions,3));
+  const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color:0x22d3ee, size:0.04, transparent:true, opacity:0.6 }));
+  scene.add(particles);
+  const grid = new THREE.GridHelper(46,46,0x22d3ee,0x1a1a1a);
+  grid.position.y = -7; grid.material.transparent = true; grid.material.opacity = 0.16; scene.add(grid);
+  const clock = new THREE.Clock();
+  (function animate(){
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    shapes.forEach(s=>{ s.rotation.x+=s.userData.rx; s.rotation.y+=s.userData.ry; s.rotation.z+=s.userData.rz; s.position.y+=Math.sin(t*s.userData.speed+s.userData.float)*s.userData.amp; const ps=s.userData.baseScale*(1+Math.sin(t*s.userData.pulseSpeed+s.userData.pulse)*0.12); s.scale.set(ps,ps,ps); });
+    ringGroup.rotation.z = t*0.15; ringGroup.rotation.x = Math.PI/2+Math.sin(t*0.2)*0.2;
+    ringGroup.children.forEach((r,i)=>r.rotation.y = t*(0.2+i*0.1));
+    particles.rotation.y = t*0.03; particles.rotation.x = Math.sin(t*0.05)*0.1;
+    camera.position.x = Math.sin(t*0.1)*2.2; camera.position.y = Math.cos(t*0.08)*1.2; camera.lookAt(0,0,0);
+    renderer.render(scene,camera);
+  })();
+  window.addEventListener('resize', ()=>{ const nw=mount.clientWidth||window.innerWidth, nh=mount.clientHeight||window.innerHeight; camera.aspect=nw/nh; camera.updateProjectionMatrix(); renderer.setSize(nw,nh); });
+}
+
+/* ===== INIT ===== */
+renderFeatured(); renderCategories(); renderFilters(); renderShop(); updateCart(); updateAuthUI(); initHero3D();
+</script>
+</body>
+</html>
+
+<!-- ============================================================
+NEXORA DATABASE — INTEGRATED SQL SCHEMA
+The SQL below is intentionally embedded as a comment so the browser
+does not execute it. Run it in PostgreSQL/Supabase to create the real database.
+Frontend/database credentials must never be placed in this file.
+============================================================
+
+-- NEXORA — SINGLE DATABASE SCHEMA
+-- PostgreSQL / Supabase compatible
+-- Designed for the supplied NEXORA index.html.
+-- The frontend remains unchanged. Run this file on your database.
+-- NEVER put database passwords/service-role keys in index.html.
+
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id uuid PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  full_name varchar(100),
+  phone varchar(25),
+  avatar_url text,
+  role varchar(20) NOT NULL DEFAULT 'customer'
+    CHECK (role IN ('customer','admin')),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.categories (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  name varchar(100) NOT NULL UNIQUE,
+  slug varchar(100) NOT NULL UNIQUE,
+  icon varchar(20),
+  description text,
+  is_active boolean NOT NULL DEFAULT true,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.products (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  category_id uuid REFERENCES public.categories(id) ON DELETE SET NULL,
+  name varchar(150) NOT NULL,
+  slug varchar(160) NOT NULL UNIQUE,
+  description text,
+  price numeric(12,2) NOT NULL CHECK (price >= 0),
+  old_price numeric(12,2) CHECK (old_price IS NULL OR old_price >= 0),
+  rating numeric(2,1) NOT NULL DEFAULT 0 CHECK (rating BETWEEN 0 AND 5),
+  stock integer NOT NULL DEFAULT 0 CHECK (stock >= 0),
+  image_url text,
+  specs jsonb NOT NULL DEFAULT '[]'::jsonb,
+  featured boolean NOT NULL DEFAULT false,
+  is_active boolean NOT NULL DEFAULT true,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.addresses (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  full_name varchar(100) NOT NULL,
+  phone varchar(25) NOT NULL,
+  address_line varchar(250) NOT NULL,
+  city varchar(80) NOT NULL,
+  postal_code varchar(20),
+  is_default boolean NOT NULL DEFAULT false,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.orders (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+  order_number varchar(30) NOT NULL UNIQUE,
+  customer_name varchar(100) NOT NULL,
+  customer_email varchar(255) NOT NULL,
+  customer_phone varchar(25) NOT NULL,
+  shipping_address varchar(250) NOT NULL,
+  city varchar(80) NOT NULL,
+  postal_code varchar(20),
+  subtotal numeric(12,2) NOT NULL CHECK (subtotal >= 0),
+  delivery_fee numeric(12,2) NOT NULL DEFAULT 250 CHECK (delivery_fee >= 0),
+  total numeric(12,2) NOT NULL CHECK (total >= 0),
+  payment_method varchar(30) NOT NULL
+    CHECK (payment_method IN ('cod','online')),
+  payment_status varchar(30) NOT NULL DEFAULT 'pending'
+    CHECK (payment_status IN ('pending','paid','failed','refunded')),
+  order_status varchar(30) NOT NULL DEFAULT 'pending'
+    CHECK (order_status IN ('pending','confirmed','processing','shipped','delivered','cancelled','returned')),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.order_items (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  order_id uuid NOT NULL REFERENCES public.orders(id) ON DELETE CASCADE,
+  product_id uuid REFERENCES public.products(id) ON DELETE SET NULL,
+  product_name varchar(150) NOT NULL,
+  quantity integer NOT NULL CHECK (quantity > 0),
+  unit_price numeric(12,2) NOT NULL CHECK (unit_price >= 0),
+  total_price numeric(12,2)
+    GENERATED ALWAYS AS (quantity * unit_price) STORED
+);
+
+CREATE TABLE IF NOT EXISTS public.reviews (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  product_id uuid NOT NULL REFERENCES public.products(id) ON DELETE CASCADE,
+  rating integer NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  review_text varchar(1000),
+  approved boolean NOT NULL DEFAULT false,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  UNIQUE(user_id, product_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.wishlist (
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  product_id uuid NOT NULL REFERENCES public.products(id) ON DELETE CASCADE,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY(user_id, product_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.contact_messages (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+  name varchar(100) NOT NULL,
+  email varchar(255) NOT NULL,
+  message varchar(2000) NOT NULL,
+  status varchar(20) NOT NULL DEFAULT 'new'
+    CHECK (status IN ('new','read','replied','closed')),
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.chat_conversations (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES public.profiles(id) ON DELETE CASCADE,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.chat_messages (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  conversation_id uuid NOT NULL REFERENCES public.chat_conversations(id) ON DELETE CASCADE,
+  sender varchar(20) NOT NULL CHECK (sender IN ('user','assistant')),
+  message varchar(2000) NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS products_category_idx ON public.products(category_id);
+CREATE INDEX IF NOT EXISTS products_active_idx ON public.products(is_active);
+CREATE INDEX IF NOT EXISTS orders_user_idx ON public.orders(user_id);
+CREATE INDEX IF NOT EXISTS orders_status_idx ON public.orders(order_status);
+CREATE INDEX IF NOT EXISTS order_items_order_idx ON public.order_items(order_id);
+CREATE INDEX IF NOT EXISTS reviews_product_idx ON public.reviews(product_id);
+CREATE INDEX IF NOT EXISTS chat_messages_conversation_idx
+  ON public.chat_messages(conversation_id, created_at);
+
+-- Seed categories used by the supplied index.html.
+INSERT INTO public.categories(name, slug, icon) VALUES
+('Audio','audio','🎵'),
+('Keyboards & Mice','keyboards-mice','⌨️'),
+('Charging','charging','🔋'),
+('Smart Devices','smart-devices','📱'),
+('Laptop Accessories','laptop-accessories','💻'),
+('Gaming','gaming','🎮')
+ON CONFLICT (slug) DO NOTHING;
+
+-- Seed all 14 products already present in index.html.
+INSERT INTO public.products
+(name,slug,category_id,description,price,old_price,rating,image_url,specs,featured,stock)
+SELECT v.name,v.slug,c.id,v.description,v.price,v.old_price,v.rating,v.image_url,
+       v.specs::jsonb,true,100
+FROM (VALUES
+('NEXORA BeamX','nexora-beamx','Smart Devices','Portable smart projector with 1080p HDR projection, auto-focus, and 4-hour battery.',45999,54999,4.7,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/ea4a2867d_generated_image.png','["1080p HDR","Auto-focus","4h battery","Built-in speaker"]'),
+('NEXORA PulseBand','nexora-pulseband','Smart Devices','Fitness tracker with AMOLED display, SpO2 monitoring, 14-day battery, and 100+ workout modes.',12999,16999,4.6,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/22432c858_generated_image.png','["AMOLED display","SpO2 monitor","14-day battery","5ATM water resistant"]'),
+('NEXORA KeyForge','nexora-keyforge','Keyboards & Mice','Mechanical keyboard with hot-swappable switches, per-key RGB, and an aluminum frame.',18999,22999,4.9,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/21d2ef5c1_generated_image.png','["Hot-swap switches","Per-key RGB","Aluminum frame","USB-C"]'),
+('NEXORA VoltCore','nexora-voltcore','Charging','20000mAh power bank with 100W fast charging, dual USB-C, and a digital charge display.',8999,11999,4.8,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/915d4f283_generated_image.png','["20000mAh","100W fast charge","Dual USB-C","LED display"]'),
+('NEXORA AuraLamp','nexora-auralamp','Laptop Accessories','Smart LED desk lamp with 10 brightness levels, 5 color temperatures, and wireless charging base.',6999,8999,4.5,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/0f1468d04_generated_image.png','["10 brightness levels","5 color temps","Wireless charging base","Touch control"]'),
+('NEXORA StrikePad','nexora-strikepad','Gaming','RGB gaming mousepad with 16.8M colors, 1ms response, and a non-slip vulcanized base.',4999,6499,4.7,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/575adca8a_generated_image.png','["16.8M RGB colors","1ms response","Vulcanized base","Micro-USB powered"]'),
+('NEXORA AirSound Pro','airsound-pro','Audio','Wireless Noise-Cancelling Headphones',12999,14999,4.9,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/47320a483_generated_0a0deb20.png','["40mm spatial drivers","32-hour battery","Adaptive ANC","Bluetooth 5.3"]'),
+('NEXORA TypeX','typex','Keyboards & Mice','Wireless Mechanical Keyboard',8499,9999,4.8,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/2c50c5aa9_generated_63063e63.png','["Low-profile switches","Tri-mode wireless","RGB edge light","Pakistan layout"]'),
+('NEXORA Glide','glide','Keyboards & Mice','Precision Wireless Mouse',4999,NULL,4.7,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/ebbfdf047_generated_874044ac.png','["26K optical sensor","68g lightweight body","70-hour battery","Silent clicks"]'),
+('NEXORA Power100','power100','Charging','100W GaN USB-C Charger',6999,7999,4.9,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/184a4aa4c_generated_f0e6c0ee.png','["100W USB-C PD","GaN efficiency","Three ports","Travel ready"]'),
+('NEXORA MagDock','magdock','Charging','Magnetic Wireless Charging Stand',5499,NULL,4.6,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/8fbb83269_generated_5df27abb.png','["15W fast charging","Adjustable viewing angle","Weighted aluminum base","Case compatible"]'),
+('NEXORA HubX','hubx','Laptop Accessories','USB-C Multi-Port Hub',7499,8499,4.8,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/8eeb71d1a_generated_c7875220.png','["8 essential ports","4K HDMI output","100W pass-through","Gigabit ethernet"]'),
+('NEXORA LightOne','lightone','Smart Devices','Smart LED Desk Lamp',5999,NULL,4.7,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/95d1b1f75_generated_411625dd.png','["Flicker-free light","Touch controls","Five color temperatures","USB-C powered"]'),
+('NEXORA Lift','lift','Laptop Accessories','Premium Laptop Stand',4499,NULL,4.8,'https://media.base44.com/images/public/6a8a938d98ee9174fd3bc121/b57601e9d_generated_45adc4d2.png','["CNC aluminum","Six height levels","Ventilated design","Foldable profile"]')
+) AS v(name,slug,category,description,price,old_price,rating,image_url,specs)
+JOIN public.categories c ON c.name=v.category
+ON CONFLICT (slug) DO NOTHING;
+
+-- Security / Row Level Security.
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.categories ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.addresses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.order_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.reviews ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.wishlist ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.contact_messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.chat_conversations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.chat_messages ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "public active categories" ON public.categories;
+CREATE POLICY "public active categories" ON public.categories
+FOR SELECT USING (is_active = true);
+
+DROP POLICY IF EXISTS "public active products" ON public.products;
+CREATE POLICY "public active products" ON public.products
+FOR SELECT USING (is_active = true);
+
+DROP POLICY IF EXISTS "own profile" ON public.profiles;
+CREATE POLICY "own profile" ON public.profiles
+FOR SELECT TO authenticated USING (id = auth.uid());
+
+DROP POLICY IF EXISTS "update own profile" ON public.profiles;
+CREATE POLICY "update own profile" ON public.profiles
+FOR UPDATE TO authenticated
+USING (id = auth.uid()) WITH CHECK (id = auth.uid());
+
+DROP POLICY IF EXISTS "own addresses" ON public.addresses;
+CREATE POLICY "own addresses" ON public.addresses
+FOR ALL TO authenticated
+USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+
+DROP POLICY IF EXISTS "own orders" ON public.orders;
+CREATE POLICY "own orders" ON public.orders
+FOR SELECT TO authenticated USING (user_id = auth.uid());
+
+DROP POLICY IF EXISTS "own order items" ON public.order_items;
+CREATE POLICY "own order items" ON public.order_items
+FOR SELECT TO authenticated USING (
+  EXISTS (
+    SELECT 1 FROM public.orders o
+    WHERE o.id=order_items.order_id AND o.user_id=auth.uid()
+  )
+);
+
+DROP POLICY IF EXISTS "approved reviews" ON public.reviews;
+CREATE POLICY "approved reviews" ON public.reviews
+FOR SELECT USING (approved=true);
+
+DROP POLICY IF EXISTS "create own reviews" ON public.reviews;
+CREATE POLICY "create own reviews" ON public.reviews
+FOR INSERT TO authenticated
+WITH CHECK (user_id=auth.uid());
+
+DROP POLICY IF EXISTS "own wishlist" ON public.wishlist;
+CREATE POLICY "own wishlist" ON public.wishlist
+FOR ALL TO authenticated
+USING (user_id=auth.uid()) WITH CHECK (user_id=auth.uid());
+
+DROP POLICY IF EXISTS "submit contact" ON public.contact_messages;
+CREATE POLICY "submit contact" ON public.contact_messages
+FOR INSERT TO anon, authenticated WITH CHECK (true);
+
+DROP POLICY IF EXISTS "own conversations" ON public.chat_conversations;
+CREATE POLICY "own conversations" ON public.chat_conversations
+FOR ALL TO authenticated
+USING (user_id=auth.uid()) WITH CHECK (user_id=auth.uid());
+
+DROP POLICY IF EXISTS "own chat messages" ON public.chat_messages;
+CREATE POLICY "own chat messages" ON public.chat_messages
+FOR SELECT TO authenticated USING (
+  EXISTS (
+    SELECT 1 FROM public.chat_conversations c
+    WHERE c.id=chat_messages.conversation_id AND c.user_id=auth.uid()
+  )
+);
+
+-- IMPORTANT BACKEND RULE:
+-- The server must calculate order totals from products.price and stock.
+-- Never trust price, total, role, stock, or payment status sent by the browser.
+-- Keep service-role/database credentials on the server only.
+
+============================================================ -->
